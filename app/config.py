@@ -7,6 +7,8 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str
     OPENAI_MODEL: str = Field(default="gpt-4o-mini")
 
+    API_AUTH_TOKEN: str | None = None
+
     REDIS_URL: str | None = None
     CORS_ORIGINS: str = Field(default="*")
 
