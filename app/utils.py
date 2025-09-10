@@ -16,6 +16,23 @@ INFORMAL_PATTERNS: List[str] = [
     "thank you in advance", "looking forward to your response", "awaiting your reply",
     "hope you had a great day", "thank you for your attention", "i appreciate your time",
     "your assistance is highly valued",
+    # Short keywords added
+    "hi", "hello", "hey", "yo", "sup", "hiya", "heya", "howdy", "namaste", "vanakkam", "salaam",
+    "gm", "gn", "gd", "gd mrng", "gd night", "gd aftn", "mrng", "morn", "noon", "eve", "nite",
+    "ty", "thx", "tnx", "thanx", "thank u", "tq", "pls", "plz", "asap", "brb", "ok", "k", "kk",
+    "cheers", "regards", "rgds", "best", "br", "thnx", "tnku", "tysm", "tyvm", "tc", "take care",
+    "bro", "broski", "dude", "man", "mate", "buddy", "pal", "folks", "fam", "peeps", "team", 
+    "sir", "ma'am", "madam", "boss", "chief",
+    "what's up", "what’s good", "wassup", "wazzup", "whatsup", "sup bro", "yo bro", "yo man", "yo dude",
+    "good morning", "good evening", "good afternoon", "good day",
+    "hello there", "hi there", "hey there", "hey buddy", "hey mate", "hey folks", "hey team", "hello everyone",
+    "greetings", "greetings of the day", "respectfully", "sincerely", "warm regards", "best regards",
+    "looking forward", "awaiting reply", "hope you are well", "hope you are doing well", 
+    "hope this message finds you well", "appreciate your help", "thank you in advance", 
+    "thank you for your attention", "your assistance is valued",
+    "dear sir", "dear madam", "dear team", "respected sir", "respected madam", "with due respect", 
+    "to whom it may concern", "i would like to inquire", "may i know", "kindly assist", 
+    "i am writing to", "thank you for your time", "i appreciate your time", "please let me know",
 ]
 
 ALLOWED_TOPICS: List[str] = [
@@ -26,6 +43,28 @@ ALLOWED_TOPICS: List[str] = [
     "greenhouse farming", "integrated farming", "pasture management", "drip irrigation", "pest control",
     "sustainable farming", "seed treatment", "crop yield", "farm equipment", "traceability",
     "fish nutrition", "duck farming", "desilting", "fingerlings",
+    "shrimp farming", "crab farming", "carp farming", "aquaculture technology", "water management",
+    "fish processing", "aquatic plants", "mariculture", "fish feed formulation", "organic fertilizer",
+    "weed management", "microbial inoculants", "fish health management", "fertigation", "soil testing",
+    "aquaculture economics", "climate-resilient farming", "agroforestry", "green manure", "integrated pest management",
+    "livestock nutrition", "beekeeping", "water pH management", "fish grading", "harvest storage", 
+    "biosecurity", "fish pond construction", "aquaculture machinery", "nutrition supplements", "sustainable fisheries",
+    # Short keywords added
+    "aquaculture", "fish", "fish farm", "pisciculture", "fisheries", "catla", "shrimp", "feed",
+    "pond", "cleaning", "irrigation", "soil", "poultry", "agri", "organic", "crop", "rotation",
+    "harvest", "fertilizer", "climate", "farm", "biofloc", "hydroponics", "tilapia", "disease",
+    "water", "aquaponics", "hatchery", "breeding", "livestock", "vermicompost", "greenhouse",
+    "integrated", "pasture", "drip", "pest", "sustainable", "seed", "yield", "equipment", "trace",
+    "nutrition", "duck", "desilt", "fingerling",
+    "crab", "carp", "mariculture", "plant", "feedform", "organicfert", "weed", "microbes", 
+    "health", "ferti", "soiltest", "economics", "resilient", "agroforestry", "greenmanure", "ipm",
+    "bee", "ph", "grading", "storage", "biosecurity", "construction", "machinery", "supplements", "sustainablefish"
+    "sensor", "aqua", "pondwater", "fishfood", "cultivation", "farmer", "aqualife", "tank", 
+    "breed", "spawning", "hatch", "harvested", "aquaplant", "soilmix", "watersoil", "compost",
+    "organicmanure", "drainage", "cropcare", "aquamedicine", "diseasecontrol", "seedling", 
+    "spray", "crophealth", "landprep", "cattles", "goat", "sheep", "piggery", "dairy", "milk",
+    "honey", "bee farm", "aquatest", "qualitytest", "monitoring", "pesticide", "herbicide", 
+    "fungicide", "storagehouse", "warehouse", "farmtech", "automation"
 ]
 
 FALLBACK_TEXT = (
