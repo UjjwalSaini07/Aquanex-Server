@@ -10,19 +10,18 @@ services:
     depends_on:
       - redis
     environment:
-      - REDIS_URL=redis://redis:6379/0
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - GITHUB_TOKEN=${GITHUB_TOKEN}
-      - APP_ENV=production
+      REDIS_URL: redis://redis:6379/0
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      APP_ENV: production
     ports:
       - "8000:8000"
     volumes:
       - ./app:/app
     labels:
       maintainer: "UjjwalS <ujjwal0007@gmail.com>"
-      project: "Aqunex-Server"
+      project: "Aquanex-Server"
       website: "https://ujjwalsaini.dev"
-      copyright: "© 2025 Aqunex-Server"
+      copyright: "© 2025 Aquanex-Server"
 
   redis:
     image: redis:7.2-alpine
