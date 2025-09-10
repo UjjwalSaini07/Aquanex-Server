@@ -3,10 +3,11 @@ from __future__ import annotations
 import asyncio
 import orjson
 import structlog
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
 from .config import settings
+from .auth import verify_header_auth
 from .logging_conf import setup_logging
 from .middlewares import log_requests
 from .schemas import ChatRequest, ErrorResponse
@@ -14,17 +15,11 @@ from .utils import includes_any, INFORMAL_PATTERNS, ALLOWED_TOPICS
 from .llm_service import stream_openai, stream_fallback
 from .redis_client import get_redis, cache_key_from_prompt
 
-# ---------------------------------------------------
-# Setup logging & app
-# ---------------------------------------------------
 setup_logging()
 logger = structlog.get_logger()
 
 app = FastAPI(title=settings.APP_NAME)
 
-# ---------------------------------------------------
-# CORS
-# ---------------------------------------------------
 origins = [o.strip() for o in settings.CORS_ORIGINS.split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -36,12 +31,9 @@ app.add_middleware(
 app.middleware("http")(log_requests)
 
 
-# ---------------------------------------------------
 # Routes
-# ---------------------------------------------------
 @app.get("/")
 async def root():
-    """Root metadata endpoint."""
     return {
         "service": settings.APP_NAME,
         "version": "1.0.0",
@@ -60,13 +52,7 @@ async def health():
 
 
 @app.post("/chat", responses={500: {"model": ErrorResponse}})
-async def chat(payload: ChatRequest):
-    """
-    Main chat endpoint:
-    - Checks if message is informal/allowed
-    - Uses Redis caching if available
-    - Streams from OpenAI or fallback generator
-    """
+async def chat(payload: ChatRequest, token: str = Depends(verify_header_auth)):
     try:
         messages = [m.model_dump() for m in payload.messages]
         selected_model = payload.selectedModel
